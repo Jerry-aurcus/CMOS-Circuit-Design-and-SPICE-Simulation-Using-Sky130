@@ -246,3 +246,47 @@ If we plot the channel length against the voltage distribution along the channel
 
 ##  Drift current theory
 
+
+## Voltage Gradient Across the Channel
+
+In the linear region, a voltage gradient exists along the channel. At any point $x$, the effective gate voltage is $V_{GS} - V(x)$. At the source terminal, it is $V_{GS}$, and at the drain terminal, it is $V_{GS} - V_{DS}$.
+
+---
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 1 00 51 PM" src="https://github.com/user-attachments/assets/455e2402-440b-443c-bd95-6698bb9a93a9" />
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 1 08 02 PM" src="https://github.com/user-attachments/assets/4f3b274b-8c63-4737-a4cc-27876e94c7f7" />
+
+
+## Channel Charge Distribution
+
+The charge induced in the channel is a function of this voltage gradient and can be expressed in terms of the oxide capacitance per unit area ($C_{ox}$), the gate voltage, the threshold voltage, and the local channel voltage. $C_{ox}$ is a constant provided by the foundry.
+
+---
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 5 02 55 PM" src="https://github.com/user-attachments/assets/ab6cc8b4-829d-4f9c-9143-29ffc98eab12" />
+
+
+
+
+## Current Components
+
+From a device physics perspective, there are two kinds of currents: drift current and diffusion current. In MOSFET operation, the drift current dominates and is responsible for the majority of current flow in the channel.
+
+---
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 5 04 25 PM" src="https://github.com/user-attachments/assets/4a39165a-ad4c-4f71-9ea6-463e78bb2200" />
+
+
+## Drift Current
+
+The drift current is proportional to the charge induced in the channel and the carrier velocity. Carrier velocity, in turn, is related to the electric field and mobility. Using these relations, the MOSFET current equation for the resistive region is obtained, and this expression is the basis for SPICE simulation models.
+
+---
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 5 07 17 PM" src="https://github.com/user-attachments/assets/446a3901-1054-440f-beb4-56e03f9cdd17" />
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 5 08 39 PM" src="https://github.com/user-attachments/assets/7b6d664a-1094-4f56-b3d5-bbc81cc93373" />
+
+
+##  Drain current model for linear region of operation
+
+
