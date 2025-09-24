@@ -203,3 +203,41 @@ The foundry supplies these constants as part of the **device model files** (e.g.
 * This ensures that the simulated transistor matches the behavior of the real fabricated device.
 
 ---
+
+## Resistive region of operation with small drain-source voltage
+---
+
+## Resistive (Linear) Region of Operation
+
+### Channel Formation
+
+In the resistive region of operation, the **channel width increases with gate-to-source voltage (VGS)**. The effective voltage required to turn the device on is given by **VGS – Vt**, where Vt is the threshold voltage.
+
+---
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 12 54 56 PM" src="https://github.com/user-attachments/assets/476fba2a-fd52-4f67-9ad9-bf380a02473c" />
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 12 54 59 PM" src="https://github.com/user-attachments/assets/8cf41218-6dec-4237-9a52-887b45225a7b" />
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 1 00 51 PM" src="https://github.com/user-attachments/assets/7f5e746c-62c3-41f9-a83c-e4888124bc1f" />
+
+### Voltage Gradient Along the Channel
+
+When the source is grounded and a voltage is applied at the drain, a **voltage gradient** is established throughout the channel. This means that the potential is not uniform along the channel length.
+
+---
+
+### Effective Channel Length
+
+Due to fabrication technology effects, the **effective channel length** is smaller than the actual physical channel length. This effect influences the accuracy of current flow modeling.
+
+---
+
+### Gate-to-Channel Voltage Difference
+
+If we plot the channel length against the voltage distribution along the channel, we observe that at every point along the channel there is a **different effective gate-to-channel voltage**. This varying voltage difference determines the local conductivity of the channel.
+
+---
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 1 08 02 PM" src="https://github.com/user-attachments/assets/539d5d18-555e-4ea8-aba7-08608fe7e17c" />
+
+##  Drift current theory
+
