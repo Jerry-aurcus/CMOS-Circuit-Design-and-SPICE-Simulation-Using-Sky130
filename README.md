@@ -142,7 +142,64 @@ Consider two cases:
 * **Vsb = 0**: The depletion region is determined only by the gate voltage.
 * **Vsb > 0**: The depletion region becomes larger due to the additional reverse bias across the source–body PN junction. As a result, inversion near the source occurs at a slightly higher gate voltage, causing a delay in channel formation.
 
+## Threshold voltage with positive substrate potential
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 12 04 46 PM" src="https://github.com/user-attachments/assets/2d4f023b-4f52-4359-b6f9-615afdfa2e00" />
+
+
+## Threshold Voltage with Body Effect
+
+The threshold voltage of an NMOS transistor is not constant. It depends on the source-to-body voltage (**VSB**) due to the **body effect**. The general equation is:
+
+$$
+V_{th} = V_{th0} + \gamma \Big( \sqrt{2\phi_F + V_{SB}} - \sqrt{2\phi_F} \Big)
+$$
+
+Where:
+
+* **$V_{th0}$** = Threshold voltage when $V_{SB} = 0$ (zero body bias).
+* **$\gamma$** = Body effect coefficient, given by
+
+  $$
+  \gamma = \frac{\sqrt{2 q \varepsilon_{si} N_A}}{C_{ox}}
+  $$
+* **$\phi_F$** = Fermi potential of the substrate.
+* **$V_{SB}$** = Source-to-body voltage.
+
+---
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 12 05 27 PM" src="https://github.com/user-attachments/assets/3710f0b3-3708-40c9-a737-a0d10034bae1" />
+
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 12 07 00 PM" src="https://github.com/user-attachments/assets/bc6cba2e-60fc-460c-ab31-e83d30560718" />
+
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 12 08 51 PM" src="https://github.com/user-attachments/assets/f8a0e82d-55d6-40ab-9a60-e54ca8e673d1" />
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 12 10 00 PM" src="https://github.com/user-attachments/assets/d5a87d89-01f0-47bc-9947-1ddb114d7a8b" />
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 12 10 14 PM" src="https://github.com/user-attachments/assets/cc07d7b8-3eba-4934-abed-1529a246cdbe" />
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 12 12 22 PM" src="https://github.com/user-attachments/assets/0a7adfbe-06fb-4ae9-b687-7359780fdf24" />
+
+
+## Effect of Parameters
+
+* If **$V_{SB} = 0$**, the threshold voltage equals its intrinsic value $V_{th0}$.
+* If **$V_{SB} > 0$**, the depletion region widens, and the channel inversion is delayed. This increases the threshold voltage by the amount given in the equation.
+* The constants $\gamma$, $\phi_F$, and $V_{th0}$ are **technology-dependent parameters** provided by the foundry.
+
 ---
 
-Do you want me to also restructure this into a **stepwise explanation of NMOS operation modes** (cutoff, linear, saturation), or keep it strictly as you’ve described here?
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 12 17 56 PM" src="https://github.com/user-attachments/assets/d2d7fb21-5af9-4cae-abd2-eafc0d03e706" />
 
+
+
+## Role in SPICE Simulation
+
+The foundry supplies these constants as part of the **device model files** (e.g., BSIM models). When these parameters are fed into the SPICE simulator:
+
+* SPICE calculates the threshold voltage under different biasing conditions.
+* The simulator then uses this threshold voltage to generate the correct **I–V characteristics** of the NMOS device.
+* This ensures that the simulated transistor matches the behavior of the real fabricated device.
+
+---
