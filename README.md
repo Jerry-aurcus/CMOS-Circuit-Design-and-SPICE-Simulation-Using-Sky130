@@ -290,3 +290,162 @@ The drift current is proportional to the charge induced in the channel and the c
 ##  Drain current model for linear region of operation
 
 
+
+## Drift Velocity
+
+The drift velocity of carriers in the channel is proportional to the electric field:
+
+$$
+v(x) = \mu_n E(x) = \mu_n \frac{dV(x)}{dx}
+$$
+
+Here:
+
+* $\mu_n$ = electron mobility (technology constant).
+* $E(x)$ = electric field at position $x$.
+* $V(x)$ = voltage at position $x$ along the channel.
+
+---
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 5 20 45 PM" src="https://github.com/user-attachments/assets/a0759af7-bc87-4dbe-bb40-1617fb50dd76" />
+
+
+## Differential Current at Position $x$
+
+The drain current is related to the channel charge and the carrier velocity:
+
+$$
+I_D = -W \cdot Q(x) \cdot v(x)
+$$
+
+The charge per unit area is:
+
+$$
+Q(x) = -C_{ox}\big(V_{GS} - V_{th} - V(x)\big)
+$$
+
+Substituting into the current equation gives:
+
+$$
+I_D = \mu_n C_{ox} W \big(V_{GS} - V_{th} - V(x)\big)\frac{dV(x)}{dx}
+$$
+
+This expression shows that the current depends on the gate overdrive $(V_{GS}-V_{th})$, the local channel voltage, and technology constants.
+
+---
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 5 22 38 PM" src="https://github.com/user-attachments/assets/e71346a9-4c8b-4fc4-ab5e-cfa8d96d5031" />
+
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 5 23 23 PM" src="https://github.com/user-attachments/assets/b3401afe-a3c2-4e70-81bc-ed930459f0c3" />
+
+
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 5 27 27 PM" src="https://github.com/user-attachments/assets/785792e9-9c5c-4fbd-9517-c4be4a38ba70" />
+
+## Integrated Drain Current (General Expression)
+
+Integrating the above equation along the channel length (from source $V=0$ to drain $V=V_{DS}$) gives the drain current:
+
+$$
+I_D = \mu_n C_{ox} \frac{W}{L}\left[(V_{GS}-V_{th})V_{DS} - \frac{V_{DS}^2}{2}\right]
+$$
+
+Where:
+
+* $W$ = channel width
+* $L$ = channel length
+* $C_{ox}$ = oxide capacitance per unit area (from foundry)
+
+This is the **standard MOSFET current equation in the linear region**.
+
+---
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 5 28 47 PM" src="https://github.com/user-attachments/assets/089d6b0e-d029-477d-9d37-8f09c9b7479d" />
+
+## Linear Region Approximation
+
+For small values of $V_{DS}$, the quadratic term $\frac{V_{DS}^2}{2}$ becomes negligible. The current equation simplifies to:
+
+$$
+I_D \approx \mu_n C_{ox} \frac{W}{L}(V_{GS} - V_{th})V_{DS}
+$$
+
+Here, the drain current is **linearly dependent on $V_{DS}$**. This is why this regime is called the **linear or resistive region**.
+
+---
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 5 28 47 PM" src="https://github.com/user-attachments/assets/50596965-90bb-479d-a2fa-efdaece15457" />
+
+
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 5 32 02 PM" src="https://github.com/user-attachments/assets/968ab802-bac2-407d-8f5a-dea2a1da8ee2" />
+
+
+## Role in SPICE Simulation
+
+* The constants $\mu_n$, $C_{ox}$, $V_{th}$, $W$, and $L$ are **technology-dependent parameters** provided by the foundry.
+* These parameters are fed into the **SPICE device model**.
+* SPICE uses them in the above equations to compute the drain current under different bias conditions.
+
+---
+
+## SPICE conclusion to resistive operation
+
+
+---
+
+## Operation in the Linear Region
+
+The MOSFET is said to operate in the **linear region** when the following condition holds:
+
+$$
+V_{DS} < V_{GS} - V_{th}
+$$
+
+This ensures that the channel is formed along the entire length, and current varies linearly with $V_{DS}$.
+
+---
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 5 42 07 PM" src="https://github.com/user-attachments/assets/16c3f933-ca64-431c-98a9-164b06fbf2c1" />
+
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 5 44 36 PM" src="https://github.com/user-attachments/assets/3b629cbe-48bb-4478-bd23-84d1a9c7fbff" />
+
+## Applying Different Gate Voltages
+
+We apply different values of gate-to-source voltage ($V_{GS}$) and sweep both $V_{GS}$ and $V_{DS}$. This allows us to observe the variation of drain current in the linear region.
+
+---
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 5 45 00 PM" src="https://github.com/user-attachments/assets/375b7e1d-7dac-40ad-a5a2-d62731fd5cf0" />
+
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 5 45 14 PM" src="https://github.com/user-attachments/assets/50b64f12-48bf-4812-bf88-6166dbf60e02" />
+
+
+<img width="3360" height="2100" alt="Screenshot 2025-09-24 at 5 45 56 PM" src="https://github.com/user-attachments/assets/1f5f0fb4-0a9b-4251-bd43-b28400b00897" />
+
+## Input to SPICE
+
+These values, along with technology constants, are supplied to the **SPICE simulator**. The simulator uses the device equations and parameters to calculate the drain current and generate the MOSFET characteristics.
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 5 49 44 PM" src="https://github.com/user-attachments/assets/1174850b-176c-4bd8-98e1-a4fbbc0bdb34" />
+
+## Pinch-off region condition
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
