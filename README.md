@@ -1,5 +1,10 @@
 # CMOS-Circuit-Design-and-SPICE-Simulation-Using-Sky130 
 
+
+# DAY1: Basics Of NMOS drain current (Id) vs drain to source voltage(Vds)
+
+
+## Why do we need SPICE simulations?
 ## Circuit Design
 
 Logic gates are made up of PMOS and NMOS transistors arranged in a particular fashion, and they perform specific tasks. For example, a CMOS inverter uses this arrangement to provide the functionality of an inverter.
