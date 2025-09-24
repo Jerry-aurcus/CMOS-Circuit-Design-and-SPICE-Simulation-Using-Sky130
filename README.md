@@ -60,3 +60,89 @@ These delay tables are generated from the SPICE simulation point of view.
 
 <img width="1680" height="1050" alt="Screenshot 2025-09-24 at 11 22 08 AM" src="https://github.com/user-attachments/assets/c6c5c431-6098-46e9-8f0b-d5cd72fe7ac6" />
 
+## Introduction to basic element in Circuit design – NMOS
+
+## Basic CMOS Device: NMOS
+
+### Structure
+
+An NMOS transistor is built on a p-type substrate. It has an isolation region to differentiate it from the next transistor. Within the substrate, there are n+ diffusion regions that act as the source and drain. Above these regions lies the gate oxide, on which the gate terminal is formed using polysilicon or metal. In addition, the device also has a body terminal (B).
+
+---
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 11 36 46 AM" src="https://github.com/user-attachments/assets/66c8a75a-d936-4511-a086-ec303a73d982" />
+
+### Threshold Voltage
+
+The threshold voltage of the NMOS transistor is very important for SPICE simulation, as it determines when the transistor turns on.
+
+---
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 11 43 14 AM" src="https://github.com/user-attachments/assets/a6e3becc-70a4-461f-8d3d-3116c620e517" />
+
+### Terminal Conditions
+
+When every terminal is grounded, no PN junction is conducting. In this situation, the resistance that exists between the source and drain is called the source–drain resistance.
+
+---
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 11 48 12 AM" src="https://github.com/user-attachments/assets/436586cf-0f11-406f-9e2b-ce8ca8248e51" />
+
+### Gate Behavior
+
+When the gate is positively charged, it forms a capacitance between the substrate and the gate. This positive charge repels the holes in the substrate, leading to the accumulation of negatively charged carriers around the gate junction.
+
+---
+
+## Strong inversion and threshold voltage
+
+
+
+## Depletion and Inversion in NMOS
+
+### Depletion Formation
+
+When the gate voltage starts to increase, depletion of charge carriers begins. The area under the gate is gradually depleted of its majority carriers (holes in the p-type substrate).
+
+---
+
+### Strong Inversion and Threshold Voltage
+
+As the gate voltage increases further, the depletion region grows until the surface region is inverted into n-type. This condition is called **strong inversion**, and the corresponding gate voltage is defined as the **threshold voltage (Vth)**.
+
+---
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 11 48 12 AM" src="https://github.com/user-attachments/assets/d1c68e8c-bfda-41dc-8fd3-e60c1b9f94cb" />
+
+### Beyond Threshold
+
+When the gate voltage exceeds the threshold:
+
+* The depletion region no longer increases.
+* Instead, negative charge carriers (electrons) accumulate near the surface, as there are no holes left to repel.
+* A further increase in gate voltage attracts electrons from the n+ source and drain regions, thereby widening the channel.
+
+---
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 11 55 10 AM" src="https://github.com/user-attachments/assets/d685896b-1401-422a-ab73-43986ab7c221" />
+
+### Channel Formation
+
+At this point, a conductive channel is formed between the source and drain, allowing current to flow.
+
+---
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 11 55 17 AM" src="https://github.com/user-attachments/assets/6358d18f-389c-4bfb-a395-78e329f74811" />
+
+### Cutoff Region
+
+When the gate voltage is below threshold, there is no conductive channel, and the transistor is in the **cutoff region**.
+
+---
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 11 59 50 AM" src="https://github.com/user-attachments/assets/910e2bc0-cd97-4c96-8eb2-e73bf447a6a5" />
+
+### Effect of Source-to-Body Voltage (Vsb)
+
+Consider two cases:
+
+* **Vsb = 0**: The depletion region is determined only by the gate voltage.
+* **Vsb > 0**: The depletion region becomes larger due to the additional reverse bias across the source–body PN junction. As a result, inversion near the source occurs at a slightly higher gate voltage, causing a delay in channel formation.
+
+---
+
+Do you want me to also restructure this into a **stepwise explanation of NMOS operation modes** (cutoff, linear, saturation), or keep it strictly as you’ve described here?
+
