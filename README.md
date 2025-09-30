@@ -434,11 +434,66 @@ These values, along with technology constants, are supplied to the **SPICE simul
 
 ## Pinch-off region condition
 
+## Saturation Region
+
+When we increase the drain-to-source voltage ($V_{DS}$), the following happens:
+
+* Near the **source end**, the surface remains in strong inversion because $V_{GS} > V_{th}$.
+* Near the **drain end**, the effective gate voltage is reduced to:
+
+$$
+V_{GS} - V(x)
+$$
+
+At the drain, $V(x) = V_{DS}$. When:
+
+$$
+V_{GS} - V_{DS} = V_{th}
+$$
+
+the inversion just disappears near the drain.
+<img width="1680" height="1050" alt="Screenshot 2025-09-24 at 6 48 43 PM" src="https://github.com/user-attachments/assets/c586fca8-967b-46da-a33f-b232f6e73434" />
+
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-30 at 2 06 38 PM" src="https://github.com/user-attachments/assets/31ad8319-074a-4461-a12e-f25fce084620" />
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-30 at 2 09 49 PM" src="https://github.com/user-attachments/assets/f3df9e3b-e42c-4033-8e2c-f002b46ab3e4" />
+
+
+---
+
+## Pinch-Off Condition
+
+If we increase $V_{DS}$ beyond this point, the inversion layer near the drain vanishes and the channel becomes “pinched off.”
+
+This is called the **pinch-off condition**, and the MOSFET enters the **saturation region**.
+
+---
+<img width="1680" height="1050" alt="Screenshot 2025-09-30 at 2 11 27 PM" src="https://github.com/user-attachments/assets/9eb406cc-1af8-4212-af82-85f3e2d570c2" />
+
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-30 at 2 11 38 PM" src="https://github.com/user-attachments/assets/87f3f64b-6335-44b5-adad-68d09489a840" />
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-30 at 2 12 39 PM" src="https://github.com/user-attachments/assets/f95bccda-200e-4a85-8549-6f0bc0c6aa83" />
+
+
+## Condition for Saturation
+
+The device operates in saturation when:
+
+$$
+V_{DS} \geq V_{GS} - V_{th}
+$$
+
+---
+<img width="1680" height="1050" alt="Screenshot 2025-09-30 at 2 14 11 PM" src="https://github.com/user-attachments/assets/8d857477-9050-4dab-adda-d524d9e0b676" />
+
+
+<img width="1680" height="1050" alt="Screenshot 2025-09-30 at 2 15 11 PM" src="https://github.com/user-attachments/assets/adbb5169-38fe-4fc3-9417-58c7fb942035" />
 
 
 
-
-
+## Drain current model for saturation region of operation
 
 
 
